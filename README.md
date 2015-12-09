@@ -154,4 +154,4 @@ curl -X PUT -H "Content-Type: application/json" -d '{
 }' 'http://localhost:8080/product/buy'
 ```
 
-The machine initial load can be checked at Bootstrap.groovy.
+The machine initial load can be checked at [Bootstrap.groovy](grails-app/init/BootStrap.groovy).
