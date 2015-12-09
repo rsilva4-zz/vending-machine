@@ -23,15 +23,108 @@ grails run-app
 
 The machine should be used via a REST interface. All prices are in pence. The following list contains the available endpoints to execute the required actions
 
-* `GET /product` - List products
-* `POST /product` - Add new product
-* `PUT /product` - Update existing product
-* `DELETE /product` - Delete existing product
+## `GET /product` - List products
 
-* `GET /change` - List available change
-* `POST /change` - Add new denomination
-* `PUT /change` - Update existing denomination
-* `DELETE /change` - Delete existing denomination
+Curl sample:
+```bash
+curl -X GET -H "Content-Type: application/json" 'http://localhost:8080/product'
+```
+
+## `POST /product` - Add new product
+
+Json body:
+```json
+{
+  "name": "A name",
+  "price":120,
+  "qnt": 10
+}
+```
+
+Curl sample:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{   
+    "denomination": "£2",
+    "qnt": 10
+  }' 'http://localhost:8080/change'
+```
+
+## `PUT /product/{id}` - Update existing product
+
+Json body:
+```json
+{
+  "name": "A name",
+  "price":120,
+  "qnt": 10
+}
+```
+
+Curl sample:
+```bash
+curl -X PUT -H "Content-Type: application/json" -d '{   
+    "qnt": 1000
+  }' 'http://localhost:8080/change/1'
+```
+
+## `DELETE /product/{id}` - Delete existing product
+
+Curl sample:
+```bash
+curl -X DELETE -H "Content-Type: application/json" -d '{   
+    "qnt": 1000
+  }' 'http://localhost:8080/product/1'
+```
+
+## `GET /change` - List available change
+
+Curl sample:
+```bash
+curl -X GET -H "Content-Type: application/json" 'http://localhost:8080/change'
+```
+
+## `POST /change` - Add new denomination
+
+Json body:
+```json
+{
+  "denomination": "£2",
+  "qnt": 10
+}
+```
+
+Curl sample:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{   
+    "denomination": "£2",
+    "qnt": 10
+  }' 'http://localhost:8080/change'
+```
+
+## `PUT /change/{id}` - Update existing denomination
+
+Json body:
+```json
+{
+  "qnt": 1000
+}
+```
+
+Curl sample:
+```bash
+curl -X PUT -H "Content-Type: application/json" -d '{   
+    "qnt": 1000
+  }' 'http://localhost:8080/change/1'
+```
+
+## `DELETE /change/{id}` - Delete existing denomination
+
+Curl sample:
+```bash
+curl -X DELETE -H "Content-Type: application/json" -d '{   
+    "qnt": 1000
+  }' 'http://localhost:8080/change/1'
+```
 
 * `PUT /product/buy` - Buy a product
 
