@@ -21,7 +21,10 @@ cd vending-machine
 grails run-app
 ```
 
-The machine should be used via a REST interface. All prices are in pence. The following list contains the available endpoints to execute the required actions
+Note: Java 7, curl, unzip and git are pre-requisites
+Note 2: If you prefer and are familiar with, I can provide a Docker container with all this stuff ready, just let me know.
+
+The machine should be used via a REST interface. All numeric prices are in pence. The following list contains the available endpoints to execute the required actions
 
 ### `GET /product` - List products
 
@@ -144,4 +147,4 @@ curl -X PUT -H "Content-Type: application/json" -d '{
 }' 'http://localhost:8080/product/buy'
 ```
 
-The machine is initial load can be checked at Bootstrap.groovy.
+The machine initial load can be checked at Bootstrap.groovy.

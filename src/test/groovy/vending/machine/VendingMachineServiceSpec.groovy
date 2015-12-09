@@ -77,4 +77,15 @@ class VendingMachineServiceSpec extends Specification {
         */
 
     }
+
+    void "Crazy stuff"() {
+
+        when: 'inserting no money'
+        def productId = Product.findByName("Super Beer").id
+        def result = service.buy(productId, [])
+
+        then: 'should ask for more money'
+        result.missingAmount == 245
+        Product.findByName("Super Beer").qnt == 2
+    }
 }

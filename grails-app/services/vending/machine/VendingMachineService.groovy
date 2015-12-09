@@ -12,7 +12,12 @@ class VendingMachineService {
         if(!selectedProduct || selectedProduct.qnt < 1){
             return [message: "Product not available" ]
         }
-        Integer insertedAmount = money.sum { String denomination -> Change.conversionTable[denomination] }
+        Integer insertedAmount = 0
+        if(money) {
+            insertedAmount += money.sum { String denomination ->
+                Change.conversionTable.containsKey(denomination) ? Change.conversionTable[denomination] : 0
+            }
+        }
         if(insertedAmount >= selectedProduct.price){
             selectedProduct.qnt--
             changeService.saveChange(money)
@@ -53,7 +58,7 @@ class VendingMachineService {
                 calculateReturningChange(availableChange,amount, returningChange)
             }
         }else{
-            throw new Exception("No change available")
+            throw new NoChangeException("No change available")
         }
     }
 }

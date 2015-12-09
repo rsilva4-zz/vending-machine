@@ -2,7 +2,7 @@ package vending.machine
 
 import grails.rest.Resource
 
-//@Resource(uri='/product', formats=['json', 'xml'])
+@Resource(uri='/product', formats=['json', 'xml'])
 class Product {
 
     String name
