@@ -22,7 +22,14 @@ grails run-app
 ```
 
 Note: Java 7, curl, unzip and git are pre-requisites
-Note 2: If you prefer and are familiar with, I can provide a Docker container with all this stuff ready, just let me know.
+
+Note 2: If you prefer and are familiar with, you can use a Docker container to isolate the environment for this purpose:
+
+``` bash
+docker run --rm -it java:7 bash
+apt-get update && apt-get install curl git unzip 
+# execute the commands above
+```
 
 The machine should be used via a REST interface. All numeric prices are in pence. The following list contains the available endpoints to execute the required actions
 
