@@ -136,7 +136,7 @@ curl -X DELETE -H "Content-Type: application/json" -d '{
   }' 'http://localhost:8080/change/1'
 ```
 
-### `PUT /product/buy` - Buy a product
+### `PUT /vendingMachine/buy` - Buy a product
 
 Json body:
 ```json

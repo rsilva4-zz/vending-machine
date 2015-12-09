@@ -1,16 +1,10 @@
 package vending.machine
 
-import grails.rest.RestfulController
-
-class ProductController extends RestfulController{
+class VendingMachineController {
 
     static responseFormats = ['json', 'xml']
-    static allowedMethods = [save: "POST", update: "PUT", patch: "PATCH", delete: "DELETE", buy:"PUT"]
+    static allowedMethods = [buy:"PUT"]
     def vendingMachineService
-
-    ProductController(){
-        super(Product, false)
-    }
 
     def buy(){
         def result
